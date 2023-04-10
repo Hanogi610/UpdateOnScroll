@@ -60,8 +60,8 @@ public class MainActivity extends AppCompatActivity implements LayTruyenCV,Recyc
             Document doc = null;
             try {
                 doc = Jsoup.connect(url).get();
-                String lastPage = doc.select("li.last").select("a").attr("href");
-                lastP = Integer.parseInt(lastPage.substring(lastPage.length()-1));
+                String lastPage = doc.select("li.last").select("a").attr("data-page");
+                lastP = Integer.parseInt(lastPage)+1;
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
